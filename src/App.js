@@ -6,6 +6,7 @@ import './App.css';
 import Navigation from './components/Navigation/Navigation'
 import Cart from './components/Cart/Cart'
 import ProductsList from './components/ProductsList/ProductsList'
+import DefaultPage from './components/DefaultPage/DefaultPage'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Switch>
           <Route path="/" exact component={ProductsList} />
           <Route path="/cart" exact component={Cart} />
+          <Route component={DefaultPage} />
         </Switch>
     </Router>
   );
