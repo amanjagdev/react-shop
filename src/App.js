@@ -2,9 +2,10 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import './App.css';
 
-
 //Importing Components
-import Navigation from './'
+import Navigation from './components/Navigation/Navigation'
+import Cart from './components/Cart/Cart'
+import ProductsList from './components/ProductsList/ProductsList'
 
 function App() {
   return (
