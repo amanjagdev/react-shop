@@ -1,8 +1,9 @@
 import React, {createContext, useReducer} from 'react';
-import items from '../data/data';
+import data from '../data/data';
+import AppReducer from './AppReducer'
 
 //Initial State
-const initialState = items;
+const initialState = data;
 
 //Global Context
 export const GlobalContext = createContext(initialState);
@@ -13,6 +14,10 @@ export const GlobalProvider = ({children}) => {
     dispatch] = useReducer(AppReducer, initialState);
 
   return (
-    <GlobalContext.Provider value>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider
+      value={{
+      items: state.items,
+      cart: state.cart
+    }}>{children}</GlobalContext.Provider>
   );
 }
