@@ -2,22 +2,6 @@ import React from 'react';
 import './ProductsList.css';
 import Product from '../Product/Product'
 
-const database = [
-  {
-    id: 1,
-    name: "Red Tshirt",
-    price: 20,
-    desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto repellat di" +
-        "cta, itaque veniam natus fugit consectetur voluptatem doloribus amet eos."
-  }, {
-    id: 2,
-    name: "Green Tshirt",
-    price: 30,
-    desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto repellat di" +
-        "cta, itaque veniam natus fugit consectetur voluptatem doloribus amet eos."
-  }
-]
-
 const ProductsList = props => {
   return (
     <React.Fragment>
