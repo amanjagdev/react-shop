@@ -14,7 +14,17 @@ const data = {
       name: "Nikon D750 FX-format Digital SLR Camera"
     }
   ],
-  cart: []
+  cart: [
+    {
+      id: 2,
+      price: 34000,
+      name: "Canon EOS Rebel T6 Digital SLR Camera"
+    }, {
+      id: 3,
+      price: 120000,
+      name: "Nikon D750 FX-format Digital SLR Camera"
+    }
+  ]
 }
 
 export default data;

@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useContext , useEffect} from 'react';
 import './Cart.css';
 import Product from '../Product/Product'
 import {Button} from 'react-bootstrap'
 
-const Cart = props => {
-    return(
-    <>
-        <h1 className="main__title">Your Cart : </h1>
-        <Product />
+//Importing Context
+import {GlobalContext} from '../../context/GlobalState';
 
-        <h3>Ready to Checkout : </h3>
-        <Button variant="success">Checkout</Button>
-    </>);
+const Cart = props => {
+    const {cart} = useContext(GlobalContext);
+    let ammount = 0;
+    cart.map(item => ammount += item.price)
+
+    //calculating ammount
+    useEffect(
+        () => cart.map(item => ammount += item.price)
+    )
+    
+
+  return (
+    <React.Fragment>
+      <h1 className="main__title">Your Cart :</h1>
+      {
+
+        //Mapping objects to be displayed
+        cart.map(item => (
+            <Product name={item.name} price={item.price} desc={item.desc} key={item.id} />
+        ))
+
+      }
+
+      <h3 className="main__title">Ready to Checkout : {ammount}</h3>
+      <div className="main__title"><Button variant="success">Checkout</Button></div>
+    </React.Fragment>
+  );
 }
 
 export default Cart;

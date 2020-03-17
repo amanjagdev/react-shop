@@ -9,7 +9,14 @@ const initialState = data;
 export const GlobalContext = createContext(initialState);
 
 //Global Provider
-export const GlobalProvider = ({children}) => {
+const GlobalProvider = ({children}) => {
+
+  //Actions 
+  const addToCart = (id) => {
+    
+  };
+
+  //Maintaing State
   const [state,
     dispatch] = useReducer(AppReducer, initialState);
 
@@ -21,3 +28,5 @@ export const GlobalProvider = ({children}) => {
     }}>{children}</GlobalContext.Provider>
   );
 }
+
+export default GlobalProvider;
