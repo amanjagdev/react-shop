@@ -9,7 +9,7 @@ import {GlobalContext} from '../../context/GlobalState';
 const Cart = props => {
     const {cart} = useContext(GlobalContext);
     let ammount = 0;
-    cart.map(item => ammount += item.price)
+    cart.forEach(item => ammount += item.price)
 
   //calculating ammount
     useEffect(
@@ -23,7 +23,7 @@ const Cart = props => {
 
         //Mapping objects to be displayed
         cart.map(item => (
-            <Product item={item} key={item.id} />
+            <Product item={item} key={item.id} from="cart"/>
         ))
 
       }

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Navigation.css';
 import {Navbar, Nav } from 'react-bootstrap'
+import { withRouter } from "react-router";
 
 const Navigation = props => {
     return(
@@ -10,8 +11,8 @@ const Navigation = props => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/cart">Cart</Nav.Link>
+                    <Nav.Link onClick={() => (props.history.push('/'))} >Home</Nav.Link>
+                    <Nav.Link onClick={() => (props.history.push('/cart'))} >Cart</Nav.Link>
                 </Nav>
                 {/* <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -22,4 +23,5 @@ const Navigation = props => {
     </>);
 }
 
-export default Navigation;
+const NavigationWithRouter = withRouter(Navigation)
+export default NavigationWithRouter;
