@@ -1,16 +1,19 @@
 # React Shop 
+A basic E-commerce site made using reactJS and hooks and contextApi
+No Redux used
 
-A basic E-commerce site made using reactJS
+## Important
+- Products List stored permanently in state
+- Update are one time and in state only
 
-### `npm start`
-Starts the development server
+### Start the development server
+`npm start`
+This will start the development server to start the application
 
-### `npm run build`
+### Build Project
+`npm run build`
 Builds the final files in Build folder
 
 
-
 ## Still in Developement
-## Tasks to do
-
-- Sample task 1(add tasks here)
+- Add product is not working yet
