@@ -22,7 +22,7 @@ const Product = (props) => {
     <Card className="main__card">
       <Card.Body>
         <Card.Title>{props.item.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{props.item.price}</Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted">$ {props.item.price}</Card.Subtitle>
         <Card.Text>
           {props.item.desc}
         </Card.Text>

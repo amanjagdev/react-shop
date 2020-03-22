@@ -1,7 +1,6 @@
 import React , {useContext} from 'react';
 import './ProductsList.css';
 import Product from '../Product/Product';
-import AddProduct from '../AddProduct/AddProduct'
 
 //Importing Context
 import { GlobalContext } from '../../context/GlobalState';
@@ -12,7 +11,7 @@ const {items} = useContext(GlobalContext);
 
   return (
     <React.Fragment>
-      <h1 className="main__title">ProductsList</h1>
+      <h1 className="main__title">Products List</h1>
       {
 
         //Mapping objects to be displayed

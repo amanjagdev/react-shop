@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import './Cart.css';
 import Product from '../Product/Product'
 import {Button} from 'react-bootstrap'
@@ -23,7 +23,7 @@ const Cart = props => {
 
       }
 
-      <h3 className="main__title">Ready to Checkout : {ammount}</h3>
+      <h3 className="main__title">Ready to Checkout : $ {ammount}</h3>
       <div className="main__title">
         <Button variant="success">Checkout</Button>
       </div>
