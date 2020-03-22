@@ -20,6 +20,13 @@ const GlobalProvider = ({children}) => {
     });
   };
 
+  const removeFromCart = (id) => {
+    dispatch({
+      type: 'DELETE_CART',
+      payload: id
+    });
+  };
+
   const addProduct = (data) => {
     dispatch({
       type: 'ADD_PRODUCT',
@@ -36,7 +43,8 @@ const GlobalProvider = ({children}) => {
       items: state.items,
       cart: state.cart,
       addToCart,
-      addProduct
+      addProduct,
+      removeFromCart
     }}>{children}</GlobalContext.Provider>
   );
 }

@@ -7,6 +7,11 @@ export default (state, action) => {
             }
         case 'ADD_PRODUCT' :
             return state;
+        case 'DELETE_CART':
+            return {
+                ...state,
+                cart: state.cart.filter(item => item.id !== action.payload)
+            }
         default:
             return state;
     }

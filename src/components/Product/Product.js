@@ -3,9 +3,11 @@ import './Product.css';
 import {Card, Button} from 'react-bootstrap'
 import {GlobalContext} from '../../context/GlobalState'
 
-const Product = ({item}) => {
+const Product = (props) => {
 
   const {addToCart} = useContext(GlobalContext);
+  const {removeFromCart} = useContext(GlobalContext);
+  
   const {items} = useContext(GlobalContext);
   function addCart(id){
       items.forEach((item) => {
@@ -19,13 +21,14 @@ const Product = ({item}) => {
   return (
     <Card className="main__card">
       <Card.Body>
-        <Card.Title>{item.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{item.price}</Card.Subtitle>
+        <Card.Title>{props.item.name}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">{props.item.price}</Card.Subtitle>
         <Card.Text>
-          {item.desc}
+          {props.item.desc}
         </Card.Text>
         <Button>
-          <Card.Link onClick={() => addCart(item.id)}>Add to Cart</Card.Link>
+          {(props.from === "cart")?<Card.Link onClick={() => removeFromCart(props.item.id)}>Remove</Card.Link>:<Card.Link onClick={() => addCart(props.item.id)}>Add to Cart</Card.Link>
+          }
         </Button>
       </Card.Body>
     </Card>
