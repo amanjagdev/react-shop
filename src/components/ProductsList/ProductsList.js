@@ -12,9 +12,6 @@ const {items} = useContext(GlobalContext);
 
   return (
     <React.Fragment>
-
-      <AddProduct />
-
       <h1 className="main__title">ProductsList</h1>
       {
 

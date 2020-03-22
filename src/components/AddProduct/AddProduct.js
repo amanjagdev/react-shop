@@ -7,31 +7,35 @@ const AddProduct = props => {
 
   const addProduct = useContext(GlobalContext);
 
-  const handleSubmit = () => {
+  const handleSubmit = (data) => {
     console.log("Added Product");
-    addProduct();
+    addProduct(data);
   }
 
   return (
     <React.Fragment >
       <div className="container">
         <h1>Add Product</h1>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="formBasicEmail">
+        <Form onSubmit={(event) => handleSubmit(event)}>
+
+          <Form.Group controlId="name">
             <Form.Label>Product Name</Form.Label>
             <Form.Control type="text" placeholder="Enter Name of product"/>
           </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password"/>
+          <Form.Group controlId="desc">
+            <Form.Label>Product Inforamtion</Form.Label>
+            <Form.Control type="text" placeholder="Information about product"/>
           </Form.Group>
-          <Form.Group controlId="formBasicCheckbox">
+
+          <Form.Group controlId="price">
             <Form.Check type="checkbox" label="Check me out"/>
           </Form.Group>
+
           <Button variant="primary" type="submit">
             Submit
           </Button>
+          
         </Form>
       </div>
     </React.Fragment>

@@ -13,6 +13,7 @@ const Navigation = props => {
                 <Nav className="mr-auto">
                     <Nav.Link onClick={() => (props.history.push('/'))} >Home</Nav.Link>
                     <Nav.Link onClick={() => (props.history.push('/cart'))} >Cart</Nav.Link>
+                    <Nav.Link onClick={() => (props.history.push('/addproduct'))} >Add Product</Nav.Link>
                 </Nav>
                 {/* <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
