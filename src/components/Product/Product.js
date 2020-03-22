@@ -1,17 +1,32 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Product.css';
-import {Card} from 'react-bootstrap'
+import {Card, Button} from 'react-bootstrap'
+import {GlobalContext} from '../../context/GlobalState'
 
-const Product = props => {
+const Product = ({item}) => {
+
+  const {addToCart} = useContext(GlobalContext);
+  const {items} = useContext(GlobalContext);
+  function addCart(id){
+      items.forEach((item) => {
+          if(item.id === id){
+              addToCart(item);
+          } 
+      });
+      console.log(id);
+  }
+
   return (
     <Card className="main__card">
       <Card.Body>
-        <Card.Title>{props.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{props.price}</Card.Subtitle>
+        <Card.Title>{item.name}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">{item.price}</Card.Subtitle>
         <Card.Text>
-          {props.desc}
+          {item.desc}
         </Card.Text>
-        <Card.Link href="#">Add to Cart</Card.Link>
+        <Button>
+          <Card.Link onClick={() => addCart(item.id)}>Add to Cart</Card.Link>
+        </Button>
       </Card.Body>
     </Card>
   );

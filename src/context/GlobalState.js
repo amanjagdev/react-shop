@@ -12,19 +12,31 @@ export const GlobalContext = createContext(initialState);
 const GlobalProvider = ({children}) => {
 
   //Actions 
-  const addToCart = (id) => {
-    
+  const addToCart = (data) => {
+    console.log(data);
+    dispatch({
+      type: 'ADD_CART',
+      payload: data
+    });
+  };
+
+  const addProduct = (data) => {
+    dispatch({
+      type: 'ADD_PRODUCT',
+      payload: data
+    });
   };
 
   //Maintaing State
-  const [state,
-    dispatch] = useReducer(AppReducer, initialState);
+  const [state,dispatch] = useReducer(AppReducer, initialState);
 
   return (
     <GlobalContext.Provider
       value={{
       items: state.items,
-      cart: state.cart
+      cart: state.cart,
+      addToCart,
+      addProduct
     }}>{children}</GlobalContext.Provider>
   );
 }
