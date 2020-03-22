@@ -16,7 +16,7 @@ const {items} = useContext(GlobalContext);
 
         //Mapping objects to be displayed
         items.map(item => (
-            <Product name={item.name} item={item} key={item.id} from="products"/>
+            <Product item={item} key={item.id} from="products"/>
         ))
 
       }
