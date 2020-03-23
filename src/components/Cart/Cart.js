@@ -9,7 +9,7 @@ import {GlobalContext} from '../../context/GlobalState';
 const Cart = props => {
     const {cart} = useContext(GlobalContext);
     let ammount = 0;
-    cart.forEach(item => ammount += item.price);
+    cart.forEach(item => ammount += (item.price*item.qty));
     
   return (
     <React.Fragment>
