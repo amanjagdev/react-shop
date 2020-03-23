@@ -20,7 +20,6 @@ const Product = (props) => {
       setActive(true);
       setTimeout(() => {
         setActive(false);
-        console.log("HI");
       }, 1000);
   }
 
@@ -32,11 +31,15 @@ const Product = (props) => {
         <Card.Text>
           {props.item.desc}
         </Card.Text>
+        {
+          (props.from === "cart")?<Card.Text> Quantity : {props.item.qty} </Card.Text>:<React.Fragment></React.Fragment>
+        }
         <Button>
           {(props.from === "cart")?<Card.Link onClick={() => removeFromCart(props.item.id)}>Remove</Card.Link>:<Card.Link onClick={() => addCart(props.item.id)}>Add to Cart</Card.Link>
           }
         </Button>
         <Card.Text><br></br><Alert show={active} variant="success">Product is added in cart</Alert></Card.Text>
+        
       </Card.Body>
     </Card>
   );

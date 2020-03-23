@@ -16,7 +16,7 @@ const AddProduct = props => {
     <React.Fragment >
       <div className="container">
         <h1>Add Product</h1>
-        <Form onSubmit={(event) => handleSubmit(event)}>
+        <Form onSubmit={handleSubmit}>
 
           <Form.Group controlId="name">
             <Form.Label>Product Name</Form.Label>
@@ -29,7 +29,8 @@ const AddProduct = props => {
           </Form.Group>
 
           <Form.Group controlId="price">
-            <Form.Check type="checkbox" label="Check me out"/>
+            <Form.Label>Product Price</Form.Label>
+            <Form.Control type="number" placeholder="Price of Product"/>
           </Form.Group>
 
           <Button variant="primary" type="submit">
