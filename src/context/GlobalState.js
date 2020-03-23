@@ -13,7 +13,6 @@ const GlobalProvider = ({children}) => {
 
   //Actions 
   const addToCart = (data) => {
-    console.log(data);
     dispatch({
       type: 'ADD_CART',
       payload: data
