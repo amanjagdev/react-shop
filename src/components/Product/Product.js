@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
+import React, {useContext , useState} from 'react';
 import './Product.css';
-import {Card, Button} from 'react-bootstrap'
+import {Card, Button, Alert} from 'react-bootstrap'
 import {GlobalContext} from '../../context/GlobalState'
 
 const Product = (props) => {
@@ -9,13 +9,19 @@ const Product = (props) => {
   const {removeFromCart} = useContext(GlobalContext);
   
   const {items} = useContext(GlobalContext);
+
+  let [active, setActive] = useState(false);
   function addCart(id){
       items.forEach((item) => {
           if(item.id === id){
               addToCart(item);
           } 
       });
-      console.log(id);
+      setActive(true);
+      setTimeout(() => {
+        setActive(false);
+        console.log("HI");
+      }, 1000);
   }
 
   return (
@@ -30,6 +36,7 @@ const Product = (props) => {
           {(props.from === "cart")?<Card.Link onClick={() => removeFromCart(props.item.id)}>Remove</Card.Link>:<Card.Link onClick={() => addCart(props.item.id)}>Add to Cart</Card.Link>
           }
         </Button>
+        <Card.Text><br></br><Alert show={active} variant="success">Product is added in cart</Alert></Card.Text>
       </Card.Body>
     </Card>
   );
