@@ -24,17 +24,18 @@ const Product = (props) => {
   }
 
   return (
-    <Card className="main__card">
+    <Card className="main__card" style={{ width: '20rem' }}>
       <Card.Body>
         <Card.Title>{props.item.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">$ {props.item.price}</Card.Subtitle>
         <Card.Text>
-          {props.item.desc}
+
+          {props.from==="cart"?<React.Fragment></React.Fragment>:props.item.desc}
         </Card.Text>
         {
           (props.from === "cart")?<Card.Text> Quantity : {props.item.qty} </Card.Text>:<React.Fragment></React.Fragment>
         }
-        <Button>
+        <Button variant="dark">
           {(props.from === "cart")?<Card.Link onClick={() => removeFromCart(props.item.id)}>Remove</Card.Link>:<Card.Link onClick={() => addCart(props.item.id)}>Add to Cart</Card.Link>
           }
         </Button>

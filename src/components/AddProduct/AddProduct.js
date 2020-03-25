@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import './AddProduct.css';
 import {GlobalContext} from '../../context/GlobalState';
-// import {Form, Button} from 'react-bootstrap'
+import {Alert} from 'react-bootstrap'
 
 const AddProduct = props => {
 
@@ -17,6 +17,9 @@ const AddProduct = props => {
   const [price,
     setPrice] = useState(0);
 
+  //To handle alerts
+  let [active, setActive] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -31,11 +34,15 @@ const AddProduct = props => {
     console.log(newItem);
 
     addProduct(newItem);
+    setActive(true);
+      setTimeout(() => {
+        setActive(false);
+      }, 1000);
   }
 
   return (
     <React.Fragment >
-      <div className="container">
+      <div className="container pt-4">
         <h1>Add Product</h1>
 
         <form onSubmit={handleSubmit}>
@@ -54,6 +61,7 @@ const AddProduct = props => {
 
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
+        <Alert show={active} variant="success">Product is added in cart</Alert>
 
 
       </div>
