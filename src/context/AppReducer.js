@@ -1,10 +1,8 @@
 export default (state, action) => {
     switch(action.type) {
         case 'ADD_CART' :
-            // console.log(action.payload.id);
             const temp = state.cart.filter(item => item.id === action.payload.id)
             const restArray = state.cart.filter(item => item.id !== action.payload.id)
-            // console.log(temp);
             if(temp[0] != null){
                 temp[0].qty++;
                 return {
